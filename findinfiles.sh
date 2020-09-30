@@ -2,7 +2,7 @@
 SEARCHPATH=$2
 PATTERN=$1
 
-if [ -z "$PATTTERN" ] 
+if [ -z "$PATTTERN" ] # for some reason enters here even when pattern is specified
 then
     echo "Usage: findinfiles.sh PATTERN [PATH]"
     echo "default PATH is ./"
@@ -15,4 +15,11 @@ then
     SEARCHPATH="./"
 fi 
 
-grep -rnw "${SEARCHPATH}" -e "${PATTERN}"
+# echo $PATTERN
+# echo $SEARCHPATH
+
+CMD="grep -rnw $SEARCHPATH -e $PATTERN"
+# grep -rnw "${SEARCHPATH}" -e "${PATTERN}"
+
+echo $CMD
+eval $CMD
