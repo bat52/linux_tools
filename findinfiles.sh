@@ -2,8 +2,7 @@
 SEARCHPATH=$2
 PATTERN=$1
 
-if [ -z "$PATTERN" ] # for some reason enters here even when pattern is specified
-then
+if [ -z "$PATTERN" ]
     echo "Usage: findinfiles.sh PATTERN [PATH]"
     echo "default PATH is ./"
 fi 
