@@ -2,23 +2,31 @@
 SEARCHPATH=$2
 PATTERN=$1
 
-if [ -z "$PATTERN" ]
-    echo "Usage: findinfiles.sh PATTERN [PATH]"
-    echo "default PATH is ./"
-fi 
+function findinfiles() {
+    SEARCHPATH=$2
+    PATTERN=$1
 
-if [ -z "$SEARCHPATH" ]
-then
-    echo "SEARCHPATH was not specified!"
-    echo "default PATH is ./"
-    SEARCHPATH="./"
-fi 
+    if [ -z "$PATTERN" ]
+    then
+        echo "Usage: findinfiles.sh PATTERN [PATH]"
+        echo "default PATH is ./"
+    fi 
 
-# echo $PATTERN
-# echo $SEARCHPATH
+    if [ -z "$SEARCHPATH" ]
+    then
+        echo "SEARCHPATH was not specified!"
+        echo "default PATH is ./"
+        SEARCHPATH="./"
+    fi 
 
-CMD="grep -rnw $SEARCHPATH -e $PATTERN"
-# grep -rnw "${SEARCHPATH}" -e "${PATTERN}"
+    # echo $PATTERN
+    # echo $SEARCHPATH
 
-echo $CMD
-eval $CMD
+    CMD="grep -rnw $SEARCHPATH -e $PATTERN"
+    # grep -rnw "${SEARCHPATH}" -e "${PATTERN}"
+
+    echo $CMD
+    eval $CMD
+}
+
+findinfiles $PATTERN $SEARCHPATH
