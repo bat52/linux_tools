@@ -4,7 +4,7 @@ PROCNAME=$1
 USER=`whoami`
 
 # retrieve list pf PID
-PIDLIST=`ps -u ${USER} | grep ${PROCNAME}  |  awk '{print $1}'`
+PIDLIST=`ps -u ${USER} | grep ${PROCNAME} | grep -v '<defunct>' |  awk '{print $1}'`
 echo ${PIDLIST}
 
 # kill all processes without mercy
