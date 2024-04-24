@@ -14,4 +14,4 @@ for PID in $PIDLIST; do
 done
 
 # show remaining active processes
-ps -u ${USER}
+ps -u ${USER} | head -n 40
