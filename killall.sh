@@ -12,3 +12,6 @@ for PID in $PIDLIST; do
     echo "PID: ${PID}"
     kill -9 $PID
 done
+
+# show remaining active processes
+ps -u ${USER}
